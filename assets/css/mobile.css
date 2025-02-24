@@ -146,6 +146,10 @@ img {
   vertical-align: middle;
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   background-color: #FB164C;
   color: #ffffff;
