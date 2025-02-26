@@ -1,11 +1,9 @@
-version: "3.8"
+version: "3.8"  # Update to version 3.8 for compatibility (since version is deprecated)
 
 services:
   web:
     image: nginx:latest
-    container_name: mobile-website
-    ports:
-      - "8080:80"
     volumes:
-      - .:/usr/share/nginx/html
-    restart: always
+      - ./src:/usr/share/nginx/html
+    ports:
+      - "80:80"

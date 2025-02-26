@@ -1,17 +1,14 @@
-# Use Nginx as the base image
-FROM nginx:latest
+# Use official Nginx as the base image
+FROM nginx:latest AS builder
 
-# Set the working directory inside the container
+# Set working directory to default location for Nginx HTML files
 WORKDIR /usr/share/nginx/html
 
-# Copy HTML file
-COPY mobile.html index.html
+# Copy the content of the src folder into the container's html directory
+COPY ./src /usr/share/nginx/html
 
-# Copy the entire assets folder (CSS, JS, and images)
-COPY assets/ assets/
-
-# Expose port 80 so the container can serve your website
+# Expose port 80 to access the web server
 EXPOSE 80
 
-# Start Nginx
+# Default command to run Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
